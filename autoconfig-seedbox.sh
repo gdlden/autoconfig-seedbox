@@ -20,6 +20,9 @@ cat << EOF > config.yml
 hd4fans: 
 #rss链接
   rss: rsslink
+  content_size:
+    min: 10MB
+    max: 20GB
   quota: 
     num: 3     
   interval: 60 
@@ -32,6 +35,6 @@ hd4fans:
       dlLimit: 20M
       upLimit: 12M
 EOF
-sed -i -e "4c\  rss: $3" config.yml && sed -i -e "11c\      host: $6" config.yml && sed -i -e "12c\      username: $1" config.yml && sed -i -e "13c\      password: $2" config.yml &&
+sed -i -e "4c\  rss: $3" config.yml && sed -i -e "14c\      host: $6" config.yml && sed -i -e "15c\      username: $1" config.yml && sed -i -e "16c\      password: $2" config.yml &&
 echo $4 | sudo -S apt-get -y install screen &&
 screen -dmS t-rss && screen -S t-rss -X stuff $"/home/$4/t-rss/t-rss -config /home/$4/t-rss/config.yml -debug\n"
