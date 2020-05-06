@@ -34,4 +34,4 @@ hd4fans:
 EOF
 sed -i -e "4c\  rss: $3" config.yml && sed -i -e "11c\      host: $6" config.yml && sed -i -e "12c\      username: $1" config.yml && sed -i -e "13c\      password: $2" config.yml &&
 echo $4 | sudo -S apt-get -y install screen &&
-screen -S t-rss && screen -S t-rss -X stuff $"./t-rss -debug\n"
+screen -dmS t-rss && screen -S t-rss -X stuff $"/home/$4/t-rss/t-rss -config /home/$4/t-rss/config.yml -debug\n"
